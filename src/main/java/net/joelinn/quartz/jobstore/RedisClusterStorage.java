@@ -411,6 +411,32 @@ public class RedisClusterStorage extends AbstractRedisStorage<JedisCluster> {
         return Trigger.TriggerState.NONE;
     }
 
+    @Override
+    public void resetTriggerFromErrorState(TriggerKey triggerKey, JedisCluster jedis) throws JobPersistenceException {
+        final String triggerHashKey = redisSchema.triggerHashKey(triggerKey);
+        Boolean exists = jedis.exists(triggerHashKey);
+        Double erroredScore = jedis.zscore(redisSchema.triggerStateKey(RedisTriggerState.ERROR), triggerHashKey);
+        String nextFireTimeResponse = jedis.hget(triggerHashKey, TRIGGER_NEXT_FIRE_TIME);
+
+        if(!exists) {
+            return;
+        }
+
+        if(erroredScore != null){
+            // do not reset a non error trigger
+            return;
+        }
+
+        final long nextFireTime = nextFireTimeResponse == null
+                || nextFireTimeResponse.isEmpty() ? -1 : Long.parseLong(nextFireTimeResponse);
+
+        if(getPausedTriggerGroups(jedis).contains(triggerKey.getGroup())) {
+            setTriggerState(RedisTriggerState.PAUSED, (double)nextFireTime, triggerHashKey, jedis);
+        } else {
+            setTriggerState(RedisTriggerState.WAITING, (double)nextFireTime, triggerHashKey, jedis);
+        }
+    }
+
     /**
      * Pause the trigger with the given key
      *
