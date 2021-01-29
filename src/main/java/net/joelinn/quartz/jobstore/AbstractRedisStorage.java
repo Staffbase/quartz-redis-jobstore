@@ -507,6 +507,8 @@ public abstract class AbstractRedisStorage<T extends JedisCommands> {
      */
     public abstract Trigger.TriggerState getTriggerState(TriggerKey triggerKey, T jedis);
 
+    public abstract void resetTriggerFromErrorState(TriggerKey triggerKey, T jedis) throws JobPersistenceException;
+
     /**
      * Pause the trigger with the given key
      * @param triggerKey the key of the trigger to be paused
