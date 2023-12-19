@@ -13,6 +13,6 @@ updates:
       - dependency-name: "*"
         update-types: [ "version-update:semver-patch" ]
     reviewers:
-      - "@Staffbase/minecraft"
+      - "@Staffbase/minecraft-devs"
     assignees:
-      - "@Staffbase/minecraft"
+      - "@Staffbase/minecraft-devs"
