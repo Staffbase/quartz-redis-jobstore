@@ -1,6 +1,6 @@
 plugins {
     java
-    id("com.palantir.git-version") version "0.15.0"
+    `maven-publish`
 }
 
 repositories {
@@ -24,13 +24,20 @@ dependencies {
     testImplementation("net.jodah:concurrentunit:0.4.6")
 }
 
-val gitVersion: groovy.lang.Closure<Any> by extra
-
-group = "com.staffbase.quartz-redis-jobstore"
-version = gitVersion()
+// these values don't matter, they're changed by jitpack when building
+group = "com.github.Staffbase"
+version = "1.0.0-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
+}
+
+publishing {
+    publications {
+        register("mavenJava", MavenPublication::class) {
+            from(components["java"])
+        }
+    }
 }
