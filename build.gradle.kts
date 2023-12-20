@@ -24,8 +24,9 @@ dependencies {
     testImplementation("net.jodah:concurrentunit:0.4.6")
 }
 
+// these values don't matter, they're changed by jitpack when building
 group = "com.github.Staffbase"
-version = "1.0.0-SNAPSHOT" // jitpack will override this
+version = "1.0.0-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
