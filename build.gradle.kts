@@ -1,6 +1,5 @@
 plugins {
     java
-    id("com.palantir.git-version") version "0.15.0"
 }
 
 repositories {
@@ -26,8 +25,8 @@ dependencies {
 
 val gitVersion: groovy.lang.Closure<Any> by extra
 
-group = "com.staffbase.quartz-redis-jobstore"
-version = gitVersion()
+group = "com.staffbase"
+version = "1.0.0-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
