@@ -24,8 +24,6 @@ dependencies {
     testImplementation("net.jodah:concurrentunit:0.4.6")
 }
 
-val gitVersion: groovy.lang.Closure<Any> by extra
-
 group = "com.github.Staffbase"
 version = "1.0.0-SNAPSHOT" // jitpack will override this
 
@@ -33,4 +31,12 @@ java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
+}
+
+publishing {
+    publications {
+        register("mavenJava", MavenPublication::class) {
+            from(components["java"])
+        }
+    }
 }
