@@ -4,14 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "08:00"
-      timezone: "Europe/Berlin"
     open-pull-requests-limit: 10
     labels:
       - "gradle dependency"
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-patch" ]
     reviewers:
       - "@Staffbase/minecraft-devs"
     assignees:
