@@ -26,9 +26,8 @@ dependencies {
 
 val gitVersion: groovy.lang.Closure<Any> by extra
 
-// these don't matter, jitpack will override them
-group = "com.staffbase"
-version = "1.0.0-SNAPSHOT"
+group = "com.github.Staffbase"
+version = "1.0.0-SNAPSHOT" // jitpack will override this
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
