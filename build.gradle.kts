@@ -13,7 +13,7 @@ dependencies {
     implementation("redis.clients:jedis:5.1.0")
     implementation("com.fasterxml.jackson.core:jackson-core:2.13.1")
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.13.1")
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.16.1")
     implementation("org.slf4j:slf4j-api:1.7.36")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.hamcrest:hamcrest-all:1.3")
