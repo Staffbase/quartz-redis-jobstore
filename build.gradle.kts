@@ -19,7 +19,7 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest-all:1.3")
     testImplementation("org.mockito:mockito-all:1.10.19")
     testImplementation("com.google.guava:guava-io:r03")
-    testImplementation("commons-io:commons-io:2.15.1")
+    testImplementation("commons-io:commons-io:2.16.0")
     testImplementation("com.github.kstyrc:embedded-redis:0.6")
     testImplementation("net.jodah:concurrentunit:0.4.6")
 }
