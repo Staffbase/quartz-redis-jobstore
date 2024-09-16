@@ -1,3 +1,5 @@
+**Note:** This Repository is archived and will no longer be maintained.
+
 Fork of quartz-redis-jobstore
 =====================
 
